@@ -1,0 +1,34 @@
+{
+  "formato": "rpg-personagem",
+  "versao": 1,
+  "id": "thorin-exemplo",
+  "nome": "Thorin (exemplo)",
+  "template": "exemplo-dnd",
+  "valores": {
+    "classe": "Guerreiro",
+    "nivel": 3,
+    "FOR": 16,
+    "DES": 12,
+    "PROF": 2,
+    "PV_MAX": 28,
+    "PV": 20,
+    "armas": [
+      {
+        "nome": "Machado grande",
+        "dano": "1d12+FOR_MOD",
+        "bonus": 0,
+        "margemCritico": 20,
+        "multCritico": 3,
+        "efeitos": ""
+      },
+      {
+        "nome": "Espada longa",
+        "dano": "1d8+FOR_MOD",
+        "bonus": 1,
+        "margemCritico": 19,
+        "multCritico": 2,
+        "efeitos": "Sangramento"
+      }
+    ]
+  }
+}

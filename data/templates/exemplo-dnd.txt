@@ -1,0 +1,822 @@
+{
+  "formato": "rpg-template",
+  "versao": 2,
+  "id": "exemplo-dnd",
+  "nome": "Exemplo D&D",
+  "definicao": {
+    "colunas": 12,
+    "layout": [
+      {
+        "tipo": "painel",
+        "pos": {
+          "x": 0,
+          "y": 0,
+          "w": 5,
+          "h": 3
+        },
+        "titulo": "Identidade",
+        "colunas": 4,
+        "filhos": [
+          {
+            "tipo": "campo",
+            "pos": {
+              "x": 0,
+              "y": 0,
+              "w": 2,
+              "h": 1
+            },
+            "campo": {
+              "id": "classe",
+              "tipo": "texto",
+              "rotulo": "Classe",
+              "padrao": "Guerreiro"
+            }
+          },
+          {
+            "tipo": "campo",
+            "pos": {
+              "x": 2,
+              "y": 0,
+              "w": 2,
+              "h": 1
+            },
+            "campo": {
+              "id": "nivel",
+              "tipo": "numero",
+              "rotulo": "Nível",
+              "padrao": 1
+            }
+          }
+        ]
+      },
+      {
+        "tipo": "painel",
+        "pos": {
+          "x": 5,
+          "y": 0,
+          "w": 7,
+          "h": 4
+        },
+        "titulo": "Atributos",
+        "colunas": 6,
+        "filhos": [
+          {
+            "tipo": "campo",
+            "pos": {
+              "x": 0,
+              "y": 0,
+              "w": 2,
+              "h": 1
+            },
+            "campo": {
+              "id": "FOR",
+              "tipo": "numero",
+              "rotulo": "Força",
+              "padrao": 10
+            }
+          },
+          {
+            "tipo": "campo",
+            "pos": {
+              "x": 2,
+              "y": 0,
+              "w": 2,
+              "h": 1
+            },
+            "campo": {
+              "id": "FOR_MOD",
+              "tipo": "calculado",
+              "rotulo": "Mod. Força",
+              "formula": "piso((FOR-10)/2)"
+            }
+          },
+          {
+            "tipo": "campo",
+            "pos": {
+              "x": 4,
+              "y": 0,
+              "w": 2,
+              "h": 1
+            },
+            "campo": {
+              "id": "PROF",
+              "tipo": "numero",
+              "rotulo": "Proficiência",
+              "padrao": 2
+            }
+          },
+          {
+            "tipo": "campo",
+            "pos": {
+              "x": 0,
+              "y": 1,
+              "w": 2,
+              "h": 1
+            },
+            "campo": {
+              "id": "DES",
+              "tipo": "numero",
+              "rotulo": "Destreza",
+              "padrao": 10
+            }
+          },
+          {
+            "tipo": "campo",
+            "pos": {
+              "x": 2,
+              "y": 1,
+              "w": 2,
+              "h": 1
+            },
+            "campo": {
+              "id": "DES_MOD",
+              "tipo": "calculado",
+              "rotulo": "Mod. Destreza",
+              "formula": "piso((DES-10)/2)"
+            }
+          },
+          {
+            "tipo": "acao",
+            "pos": {
+              "x": 4,
+              "y": 1,
+              "w": 2,
+              "h": 1
+            },
+            "acaoId": "testeForca"
+          }
+        ]
+      },
+      {
+        "tipo": "painel",
+        "pos": {
+          "x": 0,
+          "y": 3,
+          "w": 5,
+          "h": 3
+        },
+        "titulo": "Vida",
+        "colunas": 4,
+        "filhos": [
+          {
+            "tipo": "campo",
+            "pos": {
+              "x": 0,
+              "y": 0,
+              "w": 2,
+              "h": 1
+            },
+            "campo": {
+              "id": "PV_MAX",
+              "tipo": "numero",
+              "rotulo": "PV máximo",
+              "padrao": 10
+            }
+          },
+          {
+            "tipo": "campo",
+            "pos": {
+              "x": 2,
+              "y": 0,
+              "w": 2,
+              "h": 1
+            },
+            "campo": {
+              "id": "PV",
+              "tipo": "numero",
+              "rotulo": "PV atual",
+              "padrao": 10
+            }
+          },
+          {
+            "tipo": "acao",
+            "pos": {
+              "x": 0,
+              "y": 1,
+              "w": 3,
+              "h": 1
+            },
+            "acaoId": "descanso"
+          }
+        ]
+      },
+      {
+        "tipo": "lista",
+        "pos": {
+          "x": 0,
+          "y": 6,
+          "w": 12,
+          "h": 7
+        },
+        "lista": {
+          "id": "armas",
+          "rotulo": "Armas",
+          "formato": "cartoes",
+          "colunas": 6,
+          "item": [
+            {
+              "tipo": "campo",
+              "pos": {
+                "x": 0,
+                "y": 0,
+                "w": 4,
+                "h": 1
+              },
+              "campo": {
+                "id": "nome",
+                "tipo": "texto",
+                "rotulo": "Nome",
+                "padrao": ""
+              }
+            },
+            {
+              "tipo": "campo",
+              "pos": {
+                "x": 4,
+                "y": 0,
+                "w": 2,
+                "h": 1
+              },
+              "campo": {
+                "id": "dano",
+                "tipo": "dados",
+                "rotulo": "Dano",
+                "padrao": "1d6+FOR_MOD"
+              }
+            },
+            {
+              "tipo": "campo",
+              "pos": {
+                "x": 0,
+                "y": 1,
+                "w": 2,
+                "h": 1
+              },
+              "campo": {
+                "id": "bonus",
+                "tipo": "numero",
+                "rotulo": "Bônus de ataque",
+                "padrao": 0
+              }
+            },
+            {
+              "tipo": "campo",
+              "pos": {
+                "x": 2,
+                "y": 1,
+                "w": 2,
+                "h": 1
+              },
+              "campo": {
+                "id": "margemCritico",
+                "tipo": "numero",
+                "rotulo": "Margem de crítico",
+                "padrao": 20
+              }
+            },
+            {
+              "tipo": "campo",
+              "pos": {
+                "x": 4,
+                "y": 1,
+                "w": 2,
+                "h": 1
+              },
+              "campo": {
+                "id": "multCritico",
+                "tipo": "numero",
+                "rotulo": "Multiplicador",
+                "padrao": 2
+              }
+            },
+            {
+              "tipo": "campo",
+              "pos": {
+                "x": 0,
+                "y": 2,
+                "w": 4,
+                "h": 1
+              },
+              "campo": {
+                "id": "efeitos",
+                "tipo": "texto",
+                "rotulo": "Efeitos",
+                "padrao": ""
+              }
+            },
+            {
+              "tipo": "acao",
+              "pos": {
+                "x": 4,
+                "y": 2,
+                "w": 2,
+                "h": 1
+              },
+              "acaoId": "atacar"
+            }
+          ]
+        }
+      }
+    ],
+    "acoes": [
+      {
+        "id": "testeForca",
+        "rotulo": "Teste de Força",
+        "workspace": {
+          "blocks": {
+            "languageVersion": 0,
+            "blocks": [
+              {
+                "type": "rpg_log",
+                "fields": {
+                  "TEXTO": "Teste de Força"
+                },
+                "inputs": {
+                  "VALOR": {
+                    "block": {
+                      "type": "rpg_mat",
+                      "fields": {
+                        "OP": "+"
+                      },
+                      "inputs": {
+                        "A": {
+                          "block": {
+                            "type": "rpg_rolar",
+                            "inputs": {
+                              "DADOS": {
+                                "block": {
+                                  "type": "rpg_texto",
+                                  "fields": {
+                                    "TXT": "1d20"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "B": {
+                          "block": {
+                            "type": "rpg_campo_valor",
+                            "fields": {
+                              "ID": "FOR_MOD"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "x": 40,
+                "y": 40
+              }
+            ]
+          }
+        },
+        "corpo": [
+          {
+            "k": "log",
+            "texto": "Teste de Força",
+            "valor": {
+              "k": "mat",
+              "op": "+",
+              "a": {
+                "k": "rolar",
+                "dados": {
+                  "k": "txt",
+                  "v": "1d20"
+                }
+              },
+              "b": {
+                "k": "campo",
+                "id": "FOR_MOD"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "descanso",
+        "rotulo": "Descanso longo",
+        "workspace": {
+          "blocks": {
+            "languageVersion": 0,
+            "blocks": [
+              {
+                "type": "rpg_alterar_campo",
+                "fields": {
+                  "ID": "PV"
+                },
+                "inputs": {
+                  "VALOR": {
+                    "block": {
+                      "type": "rpg_campo_valor",
+                      "fields": {
+                        "ID": "PV_MAX"
+                      }
+                    }
+                  }
+                },
+                "next": {
+                  "block": {
+                    "type": "rpg_log",
+                    "fields": {
+                      "TEXTO": "PV restaurados"
+                    },
+                    "inputs": {
+                      "VALOR": {
+                        "block": {
+                          "type": "rpg_campo_valor",
+                          "fields": {
+                            "ID": "PV"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "x": 40,
+                "y": 40
+              }
+            ]
+          }
+        },
+        "corpo": [
+          {
+            "k": "alterar",
+            "alvo": "campo",
+            "id": "PV",
+            "valor": {
+              "k": "campo",
+              "id": "PV_MAX"
+            }
+          },
+          {
+            "k": "log",
+            "texto": "PV restaurados",
+            "valor": {
+              "k": "campo",
+              "id": "PV"
+            }
+          }
+        ]
+      },
+      {
+        "id": "atacar",
+        "rotulo": "Atacar",
+        "escopo": "armas",
+        "workspace": {
+          "blocks": {
+            "languageVersion": 0,
+            "blocks": [
+              {
+                "type": "rpg_definir_var",
+                "fields": {
+                  "NOME": "ataque"
+                },
+                "inputs": {
+                  "VALOR": {
+                    "block": {
+                      "type": "rpg_mat",
+                      "fields": {
+                        "OP": "+"
+                      },
+                      "inputs": {
+                        "A": {
+                          "block": {
+                            "type": "rpg_rolar",
+                            "inputs": {
+                              "DADOS": {
+                                "block": {
+                                  "type": "rpg_texto",
+                                  "fields": {
+                                    "TXT": "1d20"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "B": {
+                          "block": {
+                            "type": "rpg_mat",
+                            "fields": {
+                              "OP": "+"
+                            },
+                            "inputs": {
+                              "A": {
+                                "block": {
+                                  "type": "rpg_mat",
+                                  "fields": {
+                                    "OP": "+"
+                                  },
+                                  "inputs": {
+                                    "A": {
+                                      "block": {
+                                        "type": "rpg_campo_valor",
+                                        "fields": {
+                                          "ID": "FOR_MOD"
+                                        }
+                                      }
+                                    },
+                                    "B": {
+                                      "block": {
+                                        "type": "rpg_campo_valor",
+                                        "fields": {
+                                          "ID": "PROF"
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "B": {
+                                "block": {
+                                  "type": "rpg_item_valor",
+                                  "fields": {
+                                    "ID": "bonus"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "next": {
+                  "block": {
+                    "type": "rpg_se",
+                    "inputs": {
+                      "COND": {
+                        "block": {
+                          "type": "rpg_critico",
+                          "inputs": {
+                            "MARGEM": {
+                              "block": {
+                                "type": "rpg_item_valor",
+                                "fields": {
+                                  "ID": "margemCritico"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "ENTAO": {
+                        "block": {
+                          "type": "rpg_log",
+                          "fields": {
+                            "TEXTO": "CRÍTICO! Ataque"
+                          },
+                          "inputs": {
+                            "VALOR": {
+                              "block": {
+                                "type": "rpg_var",
+                                "fields": {
+                                  "NOME": "ataque"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "SENAO": {
+                        "block": {
+                          "type": "rpg_log",
+                          "fields": {
+                            "TEXTO": "Ataque"
+                          },
+                          "inputs": {
+                            "VALOR": {
+                              "block": {
+                                "type": "rpg_var",
+                                "fields": {
+                                  "NOME": "ataque"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "next": {
+                      "block": {
+                        "type": "rpg_log",
+                        "fields": {
+                          "TEXTO": "Dano"
+                        },
+                        "inputs": {
+                          "VALOR": {
+                            "block": {
+                              "type": "rpg_rolar_dano",
+                              "fields": {
+                                "MODO": "dados"
+                              },
+                              "inputs": {
+                                "DADOS": {
+                                  "block": {
+                                    "type": "rpg_item_valor",
+                                    "fields": {
+                                      "ID": "dano"
+                                    }
+                                  }
+                                },
+                                "MARGEM": {
+                                  "block": {
+                                    "type": "rpg_item_valor",
+                                    "fields": {
+                                      "ID": "margemCritico"
+                                    }
+                                  }
+                                },
+                                "MULT": {
+                                  "block": {
+                                    "type": "rpg_item_valor",
+                                    "fields": {
+                                      "ID": "multCritico"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "next": {
+                          "block": {
+                            "type": "rpg_se",
+                            "inputs": {
+                              "COND": {
+                                "block": {
+                                  "type": "rpg_cmp",
+                                  "fields": {
+                                    "OP": "!="
+                                  },
+                                  "inputs": {
+                                    "A": {
+                                      "block": {
+                                        "type": "rpg_item_valor",
+                                        "fields": {
+                                          "ID": "efeitos"
+                                        }
+                                      }
+                                    },
+                                    "B": {
+                                      "block": {
+                                        "type": "rpg_texto",
+                                        "fields": {
+                                          "TXT": ""
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "ENTAO": {
+                                "block": {
+                                  "type": "rpg_log",
+                                  "fields": {
+                                    "TEXTO": "Efeitos"
+                                  },
+                                  "inputs": {
+                                    "VALOR": {
+                                      "block": {
+                                        "type": "rpg_item_valor",
+                                        "fields": {
+                                          "ID": "efeitos"
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "x": 40,
+                "y": 40
+              }
+            ]
+          }
+        },
+        "corpo": [
+          {
+            "k": "definir",
+            "nome": "ataque",
+            "valor": {
+              "k": "mat",
+              "op": "+",
+              "a": {
+                "k": "rolar",
+                "dados": {
+                  "k": "txt",
+                  "v": "1d20"
+                }
+              },
+              "b": {
+                "k": "mat",
+                "op": "+",
+                "a": {
+                  "k": "mat",
+                  "op": "+",
+                  "a": {
+                    "k": "campo",
+                    "id": "FOR_MOD"
+                  },
+                  "b": {
+                    "k": "campo",
+                    "id": "PROF"
+                  }
+                },
+                "b": {
+                  "k": "item",
+                  "id": "bonus"
+                }
+              }
+            }
+          },
+          {
+            "k": "se",
+            "cond": {
+              "k": "critico",
+              "margem": {
+                "k": "item",
+                "id": "margemCritico"
+              }
+            },
+            "entao": [
+              {
+                "k": "log",
+                "texto": "CRÍTICO! Ataque",
+                "valor": {
+                  "k": "var",
+                  "nome": "ataque"
+                }
+              }
+            ],
+            "senao": [
+              {
+                "k": "log",
+                "texto": "Ataque",
+                "valor": {
+                  "k": "var",
+                  "nome": "ataque"
+                }
+              }
+            ]
+          },
+          {
+            "k": "log",
+            "texto": "Dano",
+            "valor": {
+              "k": "rolarDano",
+              "dados": {
+                "k": "item",
+                "id": "dano"
+              },
+              "margem": {
+                "k": "item",
+                "id": "margemCritico"
+              },
+              "mult": {
+                "k": "item",
+                "id": "multCritico"
+              },
+              "modo": "dados"
+            }
+          },
+          {
+            "k": "se",
+            "cond": {
+              "k": "cmp",
+              "op": "!=",
+              "a": {
+                "k": "item",
+                "id": "efeitos"
+              },
+              "b": {
+                "k": "txt",
+                "v": ""
+              }
+            },
+            "entao": [
+              {
+                "k": "log",
+                "texto": "Efeitos",
+                "valor": {
+                  "k": "item",
+                  "id": "efeitos"
+                }
+              }
+            ],
+            "senao": []
+          }
+        ]
+      }
+    ]
+  }
+}

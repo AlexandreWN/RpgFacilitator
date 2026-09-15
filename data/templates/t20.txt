@@ -1,0 +1,127 @@
+{
+  "formato": "rpg-template",
+  "versao": 2,
+  "id": "t20",
+  "nome": "T20",
+  "definicao": {
+    "colunas": 12,
+    "layout": [
+      {
+        "tipo": "painel",
+        "pos": {
+          "x": 0,
+          "y": 0,
+          "w": 12,
+          "h": 3
+        },
+        "titulo": "Personagem",
+        "colunas": 10,
+        "filhos": [
+          {
+            "tipo": "campo",
+            "pos": {
+              "x": 0,
+              "y": 0,
+              "w": 6,
+              "h": 1
+            },
+            "campo": {
+              "id": "Nome",
+              "tipo": "texto",
+              "rotulo": "Nome",
+              "padrao": ""
+            }
+          },
+          {
+            "tipo": "campo",
+            "pos": {
+              "x": 6,
+              "y": 0,
+              "w": 4,
+              "h": 1
+            },
+            "campo": {
+              "id": "Jogador",
+              "tipo": "texto",
+              "rotulo": "Jogador",
+              "padrao": ""
+            }
+          },
+          {
+            "tipo": "campo",
+            "pos": {
+              "x": 8,
+              "y": 1,
+              "w": 2,
+              "h": 1
+            },
+            "campo": {
+              "id": "Divindade",
+              "tipo": "texto",
+              "rotulo": "Divindade",
+              "padrao": ""
+            }
+          },
+          {
+            "tipo": "campo",
+            "pos": {
+              "x": 4,
+              "y": 1,
+              "w": 2,
+              "h": 1
+            },
+            "campo": {
+              "id": "Origem",
+              "tipo": "texto",
+              "rotulo": "Origem",
+              "padrao": ""
+            }
+          },
+          {
+            "tipo": "campo",
+            "pos": {
+              "x": 6,
+              "y": 1,
+              "w": 2,
+              "h": 1
+            },
+            "campo": {
+              "id": "Classe",
+              "tipo": "texto",
+              "rotulo": "Classe",
+              "padrao": ""
+            }
+          },
+          {
+            "tipo": "campo",
+            "pos": {
+              "x": 2,
+              "y": 1,
+              "w": 2,
+              "h": 1
+            },
+            "campo": {
+              "id": "Raca",
+              "tipo": "texto",
+              "rotulo": "Raca",
+              "padrao": ""
+            }
+          }
+        ]
+      },
+      {
+        "tipo": "painel",
+        "pos": {
+          "x": 0,
+          "y": 3,
+          "w": 6,
+          "h": 4
+        },
+        "titulo": "Atributos",
+        "colunas": 6,
+        "filhos": []
+      }
+    ],
+    "acoes": []
+  }
+}
