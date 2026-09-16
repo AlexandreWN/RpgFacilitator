@@ -31,9 +31,9 @@
     "Ataques": [
       {
         "Nome": "Adaga",
-        "Dano": "1d8+DES",
-        "Ataque": "piso(Nivel/2)+FOR",
-        "Margem": 18,
+        "Dano": "1d4+1",
+        "Ataque": "0",
+        "Margem": 19,
         "Mult": 2,
         "Tipo": ""
       }

@@ -706,14 +706,14 @@
           "id": "Ataques",
           "rotulo": "Ataques",
           "formato": "cartoes",
-          "colunas": 6,
+          "colunas": 8,
           "item": [
             {
               "tipo": "campo",
               "pos": {
                 "x": 0,
                 "y": 0,
-                "w": 3,
+                "w": 4,
                 "h": 1
               },
               "campo": {
@@ -721,21 +721,6 @@
                 "tipo": "texto",
                 "rotulo": "Arma",
                 "padrao": ""
-              }
-            },
-            {
-              "tipo": "campo",
-              "pos": {
-                "x": 3,
-                "y": 0,
-                "w": 3,
-                "h": 1
-              },
-              "campo": {
-                "id": "Dano",
-                "tipo": "dados",
-                "rotulo": "Dano",
-                "padrao": "1d8+FOR"
               }
             },
             {
@@ -751,36 +736,6 @@
                 "tipo": "texto",
                 "rotulo": "Bônus de ataque",
                 "padrao": "piso(Nivel/2)+FOR"
-              }
-            },
-            {
-              "tipo": "campo",
-              "pos": {
-                "x": 2,
-                "y": 1,
-                "w": 2,
-                "h": 1
-              },
-              "campo": {
-                "id": "Margem",
-                "tipo": "numero",
-                "rotulo": "Margem de crítico",
-                "padrao": 20
-              }
-            },
-            {
-              "tipo": "campo",
-              "pos": {
-                "x": 4,
-                "y": 1,
-                "w": 2,
-                "h": 1
-              },
-              "campo": {
-                "id": "Mult",
-                "tipo": "numero",
-                "rotulo": "Multiplicador",
-                "padrao": 2
               }
             },
             {
@@ -807,6 +762,66 @@
                 "h": 1
               },
               "acaoId": "atacar"
+            },
+            {
+              "tipo": "campo",
+              "pos": {
+                "x": 4,
+                "y": 0,
+                "w": 4,
+                "h": 1
+              },
+              "campo": {
+                "id": "Dano",
+                "tipo": "dados",
+                "rotulo": "Dano",
+                "padrao": "1d8+FOR"
+              }
+            },
+            {
+              "tipo": "campo",
+              "pos": {
+                "x": 6,
+                "y": 1,
+                "w": 2,
+                "h": 1
+              },
+              "campo": {
+                "id": "Mult",
+                "tipo": "numero",
+                "rotulo": "Multiplicador",
+                "padrao": 2
+              }
+            },
+            {
+              "tipo": "campo",
+              "pos": {
+                "x": 4,
+                "y": 1,
+                "w": 2,
+                "h": 1
+              },
+              "campo": {
+                "id": "Margem",
+                "tipo": "numero",
+                "rotulo": "Margem de crítico",
+                "padrao": 20
+              }
+            },
+            {
+              "tipo": "campo",
+              "pos": {
+                "x": 2,
+                "y": 1,
+                "w": 2,
+                "h": 1
+              },
+              "campo": {
+                "id": "TesteAtk",
+                "tipo": "numero",
+                "rotulo": "Teste de ataque",
+                "padrao": 0
+              }
             }
           ]
         }
