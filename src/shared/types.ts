@@ -64,6 +64,8 @@ export interface ListaDef {
   colunas: number;
   /** Layout de um item: o mesmo desenho se repete para todos. */
   item: NoLayout[];
+  /** Itens que todo personagem novo já recebe (ex.: a lista de perícias). */
+  itensPadrao?: Item[];
 }
 
 /** Um elemento posicionado na ficha. */

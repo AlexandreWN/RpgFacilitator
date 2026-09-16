@@ -1,4 +1,5 @@
 import express, { type NextFunction, type Request, type Response } from 'express';
+import { spawn } from 'node:child_process';
 import { existsSync } from 'node:fs';
 import path from 'node:path';
 import { ErroArmazenamento, PASTA_DADOS, ehColecao, excluir, ler, listar, salvar, type Colecao } from './storage';
@@ -57,7 +58,24 @@ app.use((err: unknown, _req: Request, res: Response, _next: NextFunction) => {
   res.status(500).json({ erro: err instanceof Error ? err.message : 'Erro interno' });
 });
 
+/** Abre o navegador no app (usado pelo iniciar.bat, via RPG_ABRIR=1). */
+function abrirNavegador(url: string) {
+  const [comando, argumentos] =
+    process.platform === 'win32'
+      ? (['cmd', ['/c', 'start', '""', url]] as const)
+      : process.platform === 'darwin'
+        ? (['open', [url]] as const)
+        : (['xdg-open', [url]] as const);
+  try {
+    spawn(comando, [...argumentos], { detached: true, stdio: 'ignore' }).unref();
+  } catch {
+    // sem navegador disponível: o endereço já foi impresso no console
+  }
+}
+
 app.listen(PORTA, () => {
-  console.log(`RPG Facilitator API em http://localhost:${PORTA}`);
+  const url = `http://localhost:${PORTA}`;
+  console.log(`RPG Facilitator em ${url}`);
   console.log(`Dados em ${PASTA_DADOS}`);
+  if (process.env.RPG_ABRIR === '1') abrirNavegador(url);
 });

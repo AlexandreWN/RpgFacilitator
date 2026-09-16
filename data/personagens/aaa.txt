@@ -1,0 +1,52 @@
+{
+  "formato": "rpg-personagem",
+  "versao": 1,
+  "id": "aaa",
+  "nome": "AAA",
+  "template": "t20",
+  "valores": {
+    "Nome": "",
+    "Jogador": "",
+    "Nivel": 1,
+    "Raca": "",
+    "Origem": "",
+    "Classe": "",
+    "Divindade": "",
+    "FOR": 0,
+    "DES": 0,
+    "CON": 0,
+    "INT": 0,
+    "SAB": 0,
+    "CAR": 0,
+    "PV_Atual": 0,
+    "PV_Max": 0,
+    "PM_Atual": 0,
+    "PM_Max": 0,
+    "Deslocamento": 9,
+    "Armadura": 0,
+    "Escudo": 0,
+    "Ajuste": 0,
+    "Tibares": 0,
+    "Pericias": [],
+    "Ataques": [
+      {
+        "Nome": "Adaga",
+        "Dano": "1d8+DES",
+        "Ataque": "piso(Nivel/2)+FOR",
+        "Margem": 18,
+        "Mult": 2,
+        "Tipo": ""
+      }
+    ],
+    "Magias": [],
+    "Poderes": [],
+    "Equipamento": [
+      {
+        "Nome": "Baioneta",
+        "Quantidade": 1,
+        "Espacos": 7,
+        "Observacoes": ""
+      }
+    ]
+  }
+}

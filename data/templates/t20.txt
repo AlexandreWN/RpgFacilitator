@@ -12,7 +12,7 @@
           "x": 0,
           "y": 0,
           "w": 12,
-          "h": 3
+          "h": 4
         },
         "titulo": "Personagem",
         "colunas": 10,
@@ -50,15 +50,30 @@
           {
             "tipo": "campo",
             "pos": {
-              "x": 8,
+              "x": 0,
               "y": 1,
               "w": 2,
               "h": 1
             },
             "campo": {
-              "id": "Divindade",
+              "id": "Nivel",
+              "tipo": "numero",
+              "rotulo": "Nível",
+              "padrao": 1
+            }
+          },
+          {
+            "tipo": "campo",
+            "pos": {
+              "x": 2,
+              "y": 1,
+              "w": 2,
+              "h": 1
+            },
+            "campo": {
+              "id": "Raca",
               "tipo": "texto",
-              "rotulo": "Divindade",
+              "rotulo": "Raça",
               "padrao": ""
             }
           },
@@ -95,15 +110,15 @@
           {
             "tipo": "campo",
             "pos": {
-              "x": 2,
+              "x": 8,
               "y": 1,
               "w": 2,
               "h": 1
             },
             "campo": {
-              "id": "Raca",
+              "id": "Divindade",
               "tipo": "texto",
-              "rotulo": "Raca",
+              "rotulo": "Divindade",
               "padrao": ""
             }
           }
@@ -113,15 +128,2278 @@
         "tipo": "painel",
         "pos": {
           "x": 0,
-          "y": 3,
+          "y": 4,
           "w": 6,
-          "h": 4
+          "h": 6
         },
         "titulo": "Atributos",
         "colunas": 6,
-        "filhos": []
+        "filhos": [
+          {
+            "tipo": "campo",
+            "pos": {
+              "x": 0,
+              "y": 0,
+              "w": 2,
+              "h": 1
+            },
+            "campo": {
+              "id": "FOR",
+              "tipo": "numero",
+              "rotulo": "Força",
+              "padrao": 0
+            }
+          },
+          {
+            "tipo": "campo",
+            "pos": {
+              "x": 2,
+              "y": 0,
+              "w": 2,
+              "h": 1
+            },
+            "campo": {
+              "id": "DES",
+              "tipo": "numero",
+              "rotulo": "Destreza",
+              "padrao": 0
+            }
+          },
+          {
+            "tipo": "campo",
+            "pos": {
+              "x": 4,
+              "y": 0,
+              "w": 2,
+              "h": 1
+            },
+            "campo": {
+              "id": "CON",
+              "tipo": "numero",
+              "rotulo": "Constituição",
+              "padrao": 0
+            }
+          },
+          {
+            "tipo": "campo",
+            "pos": {
+              "x": 0,
+              "y": 1,
+              "w": 2,
+              "h": 1
+            },
+            "campo": {
+              "id": "INT",
+              "tipo": "numero",
+              "rotulo": "Inteligência",
+              "padrao": 0
+            }
+          },
+          {
+            "tipo": "campo",
+            "pos": {
+              "x": 2,
+              "y": 1,
+              "w": 2,
+              "h": 1
+            },
+            "campo": {
+              "id": "SAB",
+              "tipo": "numero",
+              "rotulo": "Sabedoria",
+              "padrao": 0
+            }
+          },
+          {
+            "tipo": "campo",
+            "pos": {
+              "x": 4,
+              "y": 1,
+              "w": 2,
+              "h": 1
+            },
+            "campo": {
+              "id": "CAR",
+              "tipo": "numero",
+              "rotulo": "Carisma",
+              "padrao": 0
+            }
+          },
+          {
+            "tipo": "texto",
+            "pos": {
+              "x": 0,
+              "y": 2,
+              "w": 6,
+              "h": 1
+            },
+            "texto": "Em T20 o valor do atributo já é o modificador.",
+            "estilo": "nota"
+          }
+        ]
+      },
+      {
+        "tipo": "painel",
+        "pos": {
+          "x": 6,
+          "y": 4,
+          "w": 6,
+          "h": 6
+        },
+        "titulo": "Vida, mana e defesa",
+        "colunas": 6,
+        "filhos": [
+          {
+            "tipo": "campo",
+            "pos": {
+              "x": 0,
+              "y": 0,
+              "w": 2,
+              "h": 1
+            },
+            "campo": {
+              "id": "PV_Atual",
+              "tipo": "numero",
+              "rotulo": "PV atual",
+              "padrao": 0
+            }
+          },
+          {
+            "tipo": "campo",
+            "pos": {
+              "x": 2,
+              "y": 0,
+              "w": 2,
+              "h": 1
+            },
+            "campo": {
+              "id": "PV_Max",
+              "tipo": "numero",
+              "rotulo": "PV máximo",
+              "padrao": 0
+            }
+          },
+          {
+            "tipo": "campo",
+            "pos": {
+              "x": 4,
+              "y": 0,
+              "w": 2,
+              "h": 1
+            },
+            "campo": {
+              "id": "Defesa",
+              "tipo": "calculado",
+              "rotulo": "Defesa",
+              "formula": "10+DES+Armadura+Escudo"
+            }
+          },
+          {
+            "tipo": "campo",
+            "pos": {
+              "x": 0,
+              "y": 1,
+              "w": 2,
+              "h": 1
+            },
+            "campo": {
+              "id": "PM_Atual",
+              "tipo": "numero",
+              "rotulo": "PM atual",
+              "padrao": 0
+            }
+          },
+          {
+            "tipo": "campo",
+            "pos": {
+              "x": 2,
+              "y": 1,
+              "w": 2,
+              "h": 1
+            },
+            "campo": {
+              "id": "PM_Max",
+              "tipo": "numero",
+              "rotulo": "PM máximo",
+              "padrao": 0
+            }
+          },
+          {
+            "tipo": "campo",
+            "pos": {
+              "x": 4,
+              "y": 1,
+              "w": 2,
+              "h": 1
+            },
+            "campo": {
+              "id": "Deslocamento",
+              "tipo": "numero",
+              "rotulo": "Deslocamento (m)",
+              "padrao": 9
+            }
+          },
+          {
+            "tipo": "campo",
+            "pos": {
+              "x": 0,
+              "y": 2,
+              "w": 2,
+              "h": 1
+            },
+            "campo": {
+              "id": "Armadura",
+              "tipo": "numero",
+              "rotulo": "Bônus de armadura",
+              "padrao": 0
+            }
+          },
+          {
+            "tipo": "campo",
+            "pos": {
+              "x": 2,
+              "y": 2,
+              "w": 2,
+              "h": 1
+            },
+            "campo": {
+              "id": "Escudo",
+              "tipo": "numero",
+              "rotulo": "Bônus de escudo",
+              "padrao": 0
+            }
+          },
+          {
+            "tipo": "campo",
+            "pos": {
+              "x": 4,
+              "y": 2,
+              "w": 2,
+              "h": 1
+            },
+            "campo": {
+              "id": "Ajuste",
+              "tipo": "numero",
+              "rotulo": "Dano / cura",
+              "padrao": 0
+            }
+          },
+          {
+            "tipo": "acao",
+            "pos": {
+              "x": 0,
+              "y": 3,
+              "w": 2,
+              "h": 1
+            },
+            "acaoId": "descanso"
+          },
+          {
+            "tipo": "acao",
+            "pos": {
+              "x": 2,
+              "y": 3,
+              "w": 2,
+              "h": 1
+            },
+            "acaoId": "sofrerDano"
+          },
+          {
+            "tipo": "acao",
+            "pos": {
+              "x": 4,
+              "y": 3,
+              "w": 2,
+              "h": 1
+            },
+            "acaoId": "curar"
+          }
+        ]
+      },
+      {
+        "tipo": "lista",
+        "pos": {
+          "x": 0,
+          "y": 10,
+          "w": 12,
+          "h": 9
+        },
+        "lista": {
+          "id": "Pericias",
+          "rotulo": "Perícias",
+          "formato": "tabela",
+          "colunas": 12,
+          "itensPadrao": [
+            {
+              "Nome": "Acrobacia",
+              "Chave": "DES",
+              "Treino": 0,
+              "Outros": 0
+            },
+            {
+              "Nome": "Adestramento",
+              "Chave": "CAR",
+              "Treino": 0,
+              "Outros": 0
+            },
+            {
+              "Nome": "Atletismo",
+              "Chave": "FOR",
+              "Treino": 0,
+              "Outros": 0
+            },
+            {
+              "Nome": "Atuação",
+              "Chave": "CAR",
+              "Treino": 0,
+              "Outros": 0
+            },
+            {
+              "Nome": "Cavalgar",
+              "Chave": "DES",
+              "Treino": 0,
+              "Outros": 0
+            },
+            {
+              "Nome": "Conhecimento",
+              "Chave": "INT",
+              "Treino": 0,
+              "Outros": 0
+            },
+            {
+              "Nome": "Cura",
+              "Chave": "SAB",
+              "Treino": 0,
+              "Outros": 0
+            },
+            {
+              "Nome": "Diplomacia",
+              "Chave": "CAR",
+              "Treino": 0,
+              "Outros": 0
+            },
+            {
+              "Nome": "Enganação",
+              "Chave": "CAR",
+              "Treino": 0,
+              "Outros": 0
+            },
+            {
+              "Nome": "Fortitude",
+              "Chave": "CON",
+              "Treino": 0,
+              "Outros": 0
+            },
+            {
+              "Nome": "Furtividade",
+              "Chave": "DES",
+              "Treino": 0,
+              "Outros": 0
+            },
+            {
+              "Nome": "Guerra",
+              "Chave": "INT",
+              "Treino": 0,
+              "Outros": 0
+            },
+            {
+              "Nome": "Iniciativa",
+              "Chave": "DES",
+              "Treino": 0,
+              "Outros": 0
+            },
+            {
+              "Nome": "Intimidação",
+              "Chave": "CAR",
+              "Treino": 0,
+              "Outros": 0
+            },
+            {
+              "Nome": "Intuição",
+              "Chave": "SAB",
+              "Treino": 0,
+              "Outros": 0
+            },
+            {
+              "Nome": "Investigação",
+              "Chave": "INT",
+              "Treino": 0,
+              "Outros": 0
+            },
+            {
+              "Nome": "Jogatina",
+              "Chave": "CAR",
+              "Treino": 0,
+              "Outros": 0
+            },
+            {
+              "Nome": "Ladinagem",
+              "Chave": "DES",
+              "Treino": 0,
+              "Outros": 0
+            },
+            {
+              "Nome": "Luta",
+              "Chave": "FOR",
+              "Treino": 0,
+              "Outros": 0
+            },
+            {
+              "Nome": "Misticismo",
+              "Chave": "INT",
+              "Treino": 0,
+              "Outros": 0
+            },
+            {
+              "Nome": "Nobreza",
+              "Chave": "INT",
+              "Treino": 0,
+              "Outros": 0
+            },
+            {
+              "Nome": "Ofício",
+              "Chave": "INT",
+              "Treino": 0,
+              "Outros": 0
+            },
+            {
+              "Nome": "Percepção",
+              "Chave": "SAB",
+              "Treino": 0,
+              "Outros": 0
+            },
+            {
+              "Nome": "Pilotagem",
+              "Chave": "DES",
+              "Treino": 0,
+              "Outros": 0
+            },
+            {
+              "Nome": "Pontaria",
+              "Chave": "DES",
+              "Treino": 0,
+              "Outros": 0
+            },
+            {
+              "Nome": "Reflexos",
+              "Chave": "DES",
+              "Treino": 0,
+              "Outros": 0
+            },
+            {
+              "Nome": "Religião",
+              "Chave": "SAB",
+              "Treino": 0,
+              "Outros": 0
+            },
+            {
+              "Nome": "Sobrevivência",
+              "Chave": "SAB",
+              "Treino": 0,
+              "Outros": 0
+            },
+            {
+              "Nome": "Vontade",
+              "Chave": "SAB",
+              "Treino": 0,
+              "Outros": 0
+            }
+          ],
+          "item": [
+            {
+              "tipo": "campo",
+              "pos": {
+                "x": 0,
+                "y": 0,
+                "w": 4,
+                "h": 1
+              },
+              "campo": {
+                "id": "Nome",
+                "tipo": "texto",
+                "rotulo": "Perícia",
+                "padrao": ""
+              }
+            },
+            {
+              "tipo": "campo",
+              "pos": {
+                "x": 4,
+                "y": 0,
+                "w": 2,
+                "h": 1
+              },
+              "campo": {
+                "id": "Chave",
+                "tipo": "texto",
+                "rotulo": "Atributo",
+                "padrao": "DES"
+              }
+            },
+            {
+              "tipo": "campo",
+              "pos": {
+                "x": 6,
+                "y": 0,
+                "w": 2,
+                "h": 1
+              },
+              "campo": {
+                "id": "Treino",
+                "tipo": "numero",
+                "rotulo": "Treino",
+                "padrao": 0
+              }
+            },
+            {
+              "tipo": "campo",
+              "pos": {
+                "x": 8,
+                "y": 0,
+                "w": 2,
+                "h": 1
+              },
+              "campo": {
+                "id": "Outros",
+                "tipo": "numero",
+                "rotulo": "Outros",
+                "padrao": 0
+              }
+            },
+            {
+              "tipo": "campo",
+              "pos": {
+                "x": 10,
+                "y": 0,
+                "w": 2,
+                "h": 1
+              },
+              "campo": {
+                "id": "Total",
+                "tipo": "calculado",
+                "rotulo": "Total",
+                "formula": "piso(Nivel/2)+Chave+Treino+Outros"
+              }
+            },
+            {
+              "tipo": "acao",
+              "pos": {
+                "x": 0,
+                "y": 1,
+                "w": 2,
+                "h": 1
+              },
+              "acaoId": "testarPericia"
+            }
+          ]
+        }
+      },
+      {
+        "tipo": "lista",
+        "pos": {
+          "x": 0,
+          "y": 19,
+          "w": 12,
+          "h": 8
+        },
+        "lista": {
+          "id": "Ataques",
+          "rotulo": "Ataques",
+          "formato": "cartoes",
+          "colunas": 6,
+          "item": [
+            {
+              "tipo": "campo",
+              "pos": {
+                "x": 0,
+                "y": 0,
+                "w": 3,
+                "h": 1
+              },
+              "campo": {
+                "id": "Nome",
+                "tipo": "texto",
+                "rotulo": "Arma",
+                "padrao": ""
+              }
+            },
+            {
+              "tipo": "campo",
+              "pos": {
+                "x": 3,
+                "y": 0,
+                "w": 3,
+                "h": 1
+              },
+              "campo": {
+                "id": "Dano",
+                "tipo": "dados",
+                "rotulo": "Dano",
+                "padrao": "1d8+FOR"
+              }
+            },
+            {
+              "tipo": "campo",
+              "pos": {
+                "x": 0,
+                "y": 1,
+                "w": 2,
+                "h": 1
+              },
+              "campo": {
+                "id": "Ataque",
+                "tipo": "texto",
+                "rotulo": "Bônus de ataque",
+                "padrao": "piso(Nivel/2)+FOR"
+              }
+            },
+            {
+              "tipo": "campo",
+              "pos": {
+                "x": 2,
+                "y": 1,
+                "w": 2,
+                "h": 1
+              },
+              "campo": {
+                "id": "Margem",
+                "tipo": "numero",
+                "rotulo": "Margem de crítico",
+                "padrao": 20
+              }
+            },
+            {
+              "tipo": "campo",
+              "pos": {
+                "x": 4,
+                "y": 1,
+                "w": 2,
+                "h": 1
+              },
+              "campo": {
+                "id": "Mult",
+                "tipo": "numero",
+                "rotulo": "Multiplicador",
+                "padrao": 2
+              }
+            },
+            {
+              "tipo": "campo",
+              "pos": {
+                "x": 0,
+                "y": 2,
+                "w": 3,
+                "h": 1
+              },
+              "campo": {
+                "id": "Tipo",
+                "tipo": "texto",
+                "rotulo": "Tipo de dano",
+                "padrao": ""
+              }
+            },
+            {
+              "tipo": "acao",
+              "pos": {
+                "x": 3,
+                "y": 2,
+                "w": 3,
+                "h": 1
+              },
+              "acaoId": "atacar"
+            }
+          ]
+        }
+      },
+      {
+        "tipo": "lista",
+        "pos": {
+          "x": 0,
+          "y": 27,
+          "w": 12,
+          "h": 8
+        },
+        "lista": {
+          "id": "Magias",
+          "rotulo": "Magias",
+          "formato": "linhas",
+          "colunas": 12,
+          "item": [
+            {
+              "tipo": "campo",
+              "pos": {
+                "x": 0,
+                "y": 0,
+                "w": 4,
+                "h": 1
+              },
+              "campo": {
+                "id": "Nome",
+                "tipo": "texto",
+                "rotulo": "Magia",
+                "padrao": ""
+              }
+            },
+            {
+              "tipo": "campo",
+              "pos": {
+                "x": 4,
+                "y": 0,
+                "w": 2,
+                "h": 1
+              },
+              "campo": {
+                "id": "Circulo",
+                "tipo": "numero",
+                "rotulo": "Círculo",
+                "padrao": 1
+              }
+            },
+            {
+              "tipo": "campo",
+              "pos": {
+                "x": 6,
+                "y": 0,
+                "w": 2,
+                "h": 1
+              },
+              "campo": {
+                "id": "Custo_PM",
+                "tipo": "numero",
+                "rotulo": "Custo em PM",
+                "padrao": 1
+              }
+            },
+            {
+              "tipo": "campo",
+              "pos": {
+                "x": 8,
+                "y": 0,
+                "w": 2,
+                "h": 1
+              },
+              "campo": {
+                "id": "Execucao",
+                "tipo": "texto",
+                "rotulo": "Execução",
+                "padrao": "Padrão"
+              }
+            },
+            {
+              "tipo": "campo",
+              "pos": {
+                "x": 10,
+                "y": 0,
+                "w": 2,
+                "h": 1
+              },
+              "campo": {
+                "id": "Alcance",
+                "tipo": "texto",
+                "rotulo": "Alcance",
+                "padrao": "Curto"
+              }
+            },
+            {
+              "tipo": "campo",
+              "pos": {
+                "x": 0,
+                "y": 1,
+                "w": 2,
+                "h": 1
+              },
+              "campo": {
+                "id": "Duracao",
+                "tipo": "texto",
+                "rotulo": "Duração",
+                "padrao": "Instantânea"
+              }
+            },
+            {
+              "tipo": "campo",
+              "pos": {
+                "x": 2,
+                "y": 1,
+                "w": 2,
+                "h": 1
+              },
+              "campo": {
+                "id": "Resistencia",
+                "tipo": "texto",
+                "rotulo": "Resistência",
+                "padrao": ""
+              }
+            },
+            {
+              "tipo": "campo",
+              "pos": {
+                "x": 4,
+                "y": 1,
+                "w": 2,
+                "h": 1
+              },
+              "campo": {
+                "id": "Dano",
+                "tipo": "dados",
+                "rotulo": "Dano",
+                "padrao": ""
+              }
+            },
+            {
+              "tipo": "campo",
+              "pos": {
+                "x": 6,
+                "y": 1,
+                "w": 4,
+                "h": 1
+              },
+              "campo": {
+                "id": "Descricao",
+                "tipo": "texto",
+                "rotulo": "Efeito",
+                "padrao": ""
+              }
+            },
+            {
+              "tipo": "acao",
+              "pos": {
+                "x": 10,
+                "y": 1,
+                "w": 2,
+                "h": 1
+              },
+              "acaoId": "conjurar"
+            }
+          ]
+        }
+      },
+      {
+        "tipo": "lista",
+        "pos": {
+          "x": 0,
+          "y": 35,
+          "w": 12,
+          "h": 6
+        },
+        "lista": {
+          "id": "Poderes",
+          "rotulo": "Poderes e habilidades",
+          "formato": "linhas",
+          "colunas": 12,
+          "item": [
+            {
+              "tipo": "campo",
+              "pos": {
+                "x": 0,
+                "y": 0,
+                "w": 4,
+                "h": 1
+              },
+              "campo": {
+                "id": "Nome",
+                "tipo": "texto",
+                "rotulo": "Nome",
+                "padrao": ""
+              }
+            },
+            {
+              "tipo": "campo",
+              "pos": {
+                "x": 4,
+                "y": 0,
+                "w": 2,
+                "h": 1
+              },
+              "campo": {
+                "id": "Tipo",
+                "tipo": "texto",
+                "rotulo": "Tipo",
+                "padrao": "Classe"
+              }
+            },
+            {
+              "tipo": "campo",
+              "pos": {
+                "x": 6,
+                "y": 0,
+                "w": 6,
+                "h": 1
+              },
+              "campo": {
+                "id": "Descricao",
+                "tipo": "texto",
+                "rotulo": "Descrição",
+                "padrao": ""
+              }
+            }
+          ]
+        }
+      },
+      {
+        "tipo": "lista",
+        "pos": {
+          "x": 0,
+          "y": 41,
+          "w": 8,
+          "h": 7
+        },
+        "lista": {
+          "id": "Equipamento",
+          "rotulo": "Equipamento",
+          "formato": "tabela",
+          "colunas": 12,
+          "item": [
+            {
+              "tipo": "campo",
+              "pos": {
+                "x": 0,
+                "y": 0,
+                "w": 4,
+                "h": 1
+              },
+              "campo": {
+                "id": "Nome",
+                "tipo": "texto",
+                "rotulo": "Item",
+                "padrao": ""
+              }
+            },
+            {
+              "tipo": "campo",
+              "pos": {
+                "x": 4,
+                "y": 0,
+                "w": 2,
+                "h": 1
+              },
+              "campo": {
+                "id": "Quantidade",
+                "tipo": "numero",
+                "rotulo": "Qtd.",
+                "padrao": 1
+              }
+            },
+            {
+              "tipo": "campo",
+              "pos": {
+                "x": 6,
+                "y": 0,
+                "w": 2,
+                "h": 1
+              },
+              "campo": {
+                "id": "Espacos",
+                "tipo": "numero",
+                "rotulo": "Espaços",
+                "padrao": 1
+              }
+            },
+            {
+              "tipo": "campo",
+              "pos": {
+                "x": 8,
+                "y": 0,
+                "w": 4,
+                "h": 1
+              },
+              "campo": {
+                "id": "Observacoes",
+                "tipo": "texto",
+                "rotulo": "Observações",
+                "padrao": ""
+              }
+            }
+          ]
+        }
+      },
+      {
+        "tipo": "painel",
+        "pos": {
+          "x": 8,
+          "y": 41,
+          "w": 4,
+          "h": 5
+        },
+        "titulo": "Recursos",
+        "colunas": 4,
+        "filhos": [
+          {
+            "tipo": "campo",
+            "pos": {
+              "x": 0,
+              "y": 0,
+              "w": 2,
+              "h": 1
+            },
+            "campo": {
+              "id": "Tibares",
+              "tipo": "numero",
+              "rotulo": "Tibares (T$)",
+              "padrao": 0
+            }
+          },
+          {
+            "tipo": "campo",
+            "pos": {
+              "x": 2,
+              "y": 0,
+              "w": 2,
+              "h": 1
+            },
+            "campo": {
+              "id": "Espacos_Max",
+              "tipo": "calculado",
+              "rotulo": "Espaços",
+              "formula": "10+FOR"
+            }
+          },
+          {
+            "tipo": "texto",
+            "pos": {
+              "x": 0,
+              "y": 1,
+              "w": 4,
+              "h": 1
+            },
+            "texto": "Acima dos espaços você fica sobrecarregado.",
+            "estilo": "nota"
+          }
+        ]
       }
     ],
-    "acoes": []
+    "acoes": [
+      {
+        "id": "testarPericia",
+        "rotulo": "Testar",
+        "escopo": "Pericias",
+        "workspace": {
+          "blocks": {
+            "languageVersion": 0,
+            "blocks": [
+              {
+                "type": "rpg_log",
+                "id": "4}ZLI}j.Ee7$t):@#o]E",
+                "x": 40,
+                "y": 40,
+                "fields": {
+                  "TEXTO": "Teste"
+                },
+                "inputs": {
+                  "VALOR": {
+                    "block": {
+                      "type": "rpg_mat",
+                      "id": "Pm#{u@;ZQClx`aHU]wF=",
+                      "fields": {
+                        "OP": "+"
+                      },
+                      "inputs": {
+                        "A": {
+                          "block": {
+                            "type": "rpg_rolar",
+                            "id": "{a}eH?.0dEi()hG8P-GI",
+                            "inputs": {
+                              "DADOS": {
+                                "block": {
+                                  "type": "rpg_texto",
+                                  "id": "NGrLQ(I1;p%yrKgt;l]L",
+                                  "fields": {
+                                    "TXT": "1d20"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "B": {
+                          "block": {
+                            "type": "rpg_item_valor",
+                            "id": "%PG-Ufa?{)_sCPmi~1FU",
+                            "fields": {
+                              "ID": "Total"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "corpo": [
+          {
+            "k": "log",
+            "texto": "Teste",
+            "valor": {
+              "k": "mat",
+              "op": "+",
+              "a": {
+                "k": "rolar",
+                "dados": {
+                  "k": "txt",
+                  "v": "1d20"
+                }
+              },
+              "b": {
+                "k": "item",
+                "id": "Total"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "atacar",
+        "rotulo": "Atacar",
+        "escopo": "Ataques",
+        "workspace": {
+          "blocks": {
+            "languageVersion": 0,
+            "blocks": [
+              {
+                "type": "rpg_definir_var",
+                "id": "022WDae#dDfqbjm?BITV",
+                "x": 40,
+                "y": 40,
+                "fields": {
+                  "NOME": "ataque"
+                },
+                "inputs": {
+                  "VALOR": {
+                    "block": {
+                      "type": "rpg_mat",
+                      "id": "tW{?h7Dsg4kQ`kzY~;%[",
+                      "fields": {
+                        "OP": "+"
+                      },
+                      "inputs": {
+                        "A": {
+                          "block": {
+                            "type": "rpg_rolar",
+                            "id": "Ghgt*D=(ZDrF)8tF~)V;",
+                            "inputs": {
+                              "DADOS": {
+                                "block": {
+                                  "type": "rpg_texto",
+                                  "id": "6[D4Ex#`xd.VaLYgOe|:",
+                                  "fields": {
+                                    "TXT": "1d20"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "B": {
+                          "block": {
+                            "type": "rpg_item_valor",
+                            "id": "!++?X*jWgGvh.qC[?a,%",
+                            "fields": {
+                              "ID": "Ataque"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "next": {
+                  "block": {
+                    "type": "rpg_se",
+                    "id": "~e}?8C.9t6Lso*8o@ADr",
+                    "inputs": {
+                      "COND": {
+                        "block": {
+                          "type": "rpg_critico",
+                          "id": "a0H*xHa3b76TXVVYjB$^",
+                          "inputs": {
+                            "MARGEM": {
+                              "block": {
+                                "type": "rpg_item_valor",
+                                "id": "6nf?3cTps9WrPD!.cOL|",
+                                "fields": {
+                                  "ID": "Margem"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "ENTAO": {
+                        "block": {
+                          "type": "rpg_log",
+                          "id": "TZp+`ZgI=rQEc;F0u./Y",
+                          "fields": {
+                            "TEXTO": "ACERTO CRÍTICO! Ataque"
+                          },
+                          "inputs": {
+                            "VALOR": {
+                              "block": {
+                                "type": "rpg_var",
+                                "id": "!_?n4@m;L-}^4aA:l%en",
+                                "fields": {
+                                  "NOME": "ataque"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "SENAO": {
+                        "block": {
+                          "type": "rpg_log",
+                          "id": "YVL?6PhKS,;rD0OA7OB^",
+                          "fields": {
+                            "TEXTO": "Ataque"
+                          },
+                          "inputs": {
+                            "VALOR": {
+                              "block": {
+                                "type": "rpg_var",
+                                "id": "WvQ4y!1AI=Wxr*e7$T?9",
+                                "fields": {
+                                  "NOME": "ataque"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "next": {
+                      "block": {
+                        "type": "rpg_log",
+                        "id": "Rk|GARi6j@HU_X]E,m#W",
+                        "fields": {
+                          "TEXTO": "Dano"
+                        },
+                        "inputs": {
+                          "VALOR": {
+                            "block": {
+                              "type": "rpg_rolar_dano",
+                              "id": "z*ymq=Hhc?hL)H-.tCYf",
+                              "fields": {
+                                "MODO": "dados"
+                              },
+                              "inputs": {
+                                "DADOS": {
+                                  "block": {
+                                    "type": "rpg_item_valor",
+                                    "id": "Kusu!73|_$/;|K=lk1qf",
+                                    "fields": {
+                                      "ID": "Dano"
+                                    }
+                                  }
+                                },
+                                "MARGEM": {
+                                  "block": {
+                                    "type": "rpg_item_valor",
+                                    "id": "3:U#l}(Vqy*%z|U#414T",
+                                    "fields": {
+                                      "ID": "Margem"
+                                    }
+                                  }
+                                },
+                                "MULT": {
+                                  "block": {
+                                    "type": "rpg_item_valor",
+                                    "id": "v(Hg:RuAK[Aq(G/E`Ou~",
+                                    "fields": {
+                                      "ID": "Mult"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "next": {
+                          "block": {
+                            "type": "rpg_se",
+                            "id": ":t5H|+F,VkK[0#pGU3mD",
+                            "inputs": {
+                              "COND": {
+                                "block": {
+                                  "type": "rpg_cmp",
+                                  "id": "Un;?LSS)u.Z26:^__a:w",
+                                  "fields": {
+                                    "OP": "!="
+                                  },
+                                  "inputs": {
+                                    "A": {
+                                      "block": {
+                                        "type": "rpg_item_valor",
+                                        "id": "Ll$gu9CKs)DSN)R!D::i",
+                                        "fields": {
+                                          "ID": "Tipo"
+                                        }
+                                      }
+                                    },
+                                    "B": {
+                                      "block": {
+                                        "type": "rpg_texto",
+                                        "id": "Ta~Hiubo$zDzP^w^VT4H",
+                                        "fields": {
+                                          "TXT": ""
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "ENTAO": {
+                                "block": {
+                                  "type": "rpg_log",
+                                  "id": "uVydlhdK0x~hxZJ)%sb?",
+                                  "fields": {
+                                    "TEXTO": "Tipo de dano"
+                                  },
+                                  "inputs": {
+                                    "VALOR": {
+                                      "block": {
+                                        "type": "rpg_item_valor",
+                                        "id": "!7UvJnv]byfi~L0fdEo#",
+                                        "fields": {
+                                          "ID": "Tipo"
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "corpo": [
+          {
+            "k": "definir",
+            "nome": "ataque",
+            "valor": {
+              "k": "mat",
+              "op": "+",
+              "a": {
+                "k": "rolar",
+                "dados": {
+                  "k": "txt",
+                  "v": "1d20"
+                }
+              },
+              "b": {
+                "k": "item",
+                "id": "Ataque"
+              }
+            }
+          },
+          {
+            "k": "se",
+            "cond": {
+              "k": "critico",
+              "margem": {
+                "k": "item",
+                "id": "Margem"
+              }
+            },
+            "entao": [
+              {
+                "k": "log",
+                "texto": "ACERTO CRÍTICO! Ataque",
+                "valor": {
+                  "k": "var",
+                  "nome": "ataque"
+                }
+              }
+            ],
+            "senao": [
+              {
+                "k": "log",
+                "texto": "Ataque",
+                "valor": {
+                  "k": "var",
+                  "nome": "ataque"
+                }
+              }
+            ]
+          },
+          {
+            "k": "log",
+            "texto": "Dano",
+            "valor": {
+              "k": "rolarDano",
+              "dados": {
+                "k": "item",
+                "id": "Dano"
+              },
+              "margem": {
+                "k": "item",
+                "id": "Margem"
+              },
+              "mult": {
+                "k": "item",
+                "id": "Mult"
+              },
+              "modo": "dados"
+            }
+          },
+          {
+            "k": "se",
+            "cond": {
+              "k": "cmp",
+              "op": "!=",
+              "a": {
+                "k": "item",
+                "id": "Tipo"
+              },
+              "b": {
+                "k": "txt",
+                "v": ""
+              }
+            },
+            "entao": [
+              {
+                "k": "log",
+                "texto": "Tipo de dano",
+                "valor": {
+                  "k": "item",
+                  "id": "Tipo"
+                }
+              }
+            ],
+            "senao": []
+          }
+        ]
+      },
+      {
+        "id": "conjurar",
+        "rotulo": "Conjurar",
+        "escopo": "Magias",
+        "workspace": {
+          "blocks": {
+            "languageVersion": 0,
+            "blocks": [
+              {
+                "type": "rpg_se",
+                "id": "R`sUnNVuKM)M]~7;EG@K",
+                "x": 40,
+                "y": 40,
+                "inputs": {
+                  "COND": {
+                    "block": {
+                      "type": "rpg_cmp",
+                      "id": "8md4A1(?AIr8f050]?A]",
+                      "fields": {
+                        "OP": ">="
+                      },
+                      "inputs": {
+                        "A": {
+                          "block": {
+                            "type": "rpg_campo_valor",
+                            "id": "WN~4l[nkL3+O*(ug@oL$",
+                            "fields": {
+                              "ID": "PM_Atual"
+                            }
+                          }
+                        },
+                        "B": {
+                          "block": {
+                            "type": "rpg_item_valor",
+                            "id": "WeXCmAz)p}z`*H{,!!Wq",
+                            "fields": {
+                              "ID": "Custo_PM"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "ENTAO": {
+                    "block": {
+                      "type": "rpg_alterar_campo",
+                      "id": "LXSv?@kl.Yzr9c*iCY~W",
+                      "fields": {
+                        "ID": "PM_Atual"
+                      },
+                      "inputs": {
+                        "VALOR": {
+                          "block": {
+                            "type": "rpg_mat",
+                            "id": "%Gvd]E;)d@wL}FY7ll#J",
+                            "fields": {
+                              "OP": "-"
+                            },
+                            "inputs": {
+                              "A": {
+                                "block": {
+                                  "type": "rpg_campo_valor",
+                                  "id": "0t=(*(ba*6GdNg#-X{RC",
+                                  "fields": {
+                                    "ID": "PM_Atual"
+                                  }
+                                }
+                              },
+                              "B": {
+                                "block": {
+                                  "type": "rpg_item_valor",
+                                  "id": "eO:i:rT!U-ocCeY!k0D4",
+                                  "fields": {
+                                    "ID": "Custo_PM"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "next": {
+                        "block": {
+                          "type": "rpg_log",
+                          "id": "c92f@2i3s[|1U.]|RyVS",
+                          "fields": {
+                            "TEXTO": "PM gastos"
+                          },
+                          "inputs": {
+                            "VALOR": {
+                              "block": {
+                                "type": "rpg_item_valor",
+                                "id": "$q,Czw^!I3G9}iwpR4R3",
+                                "fields": {
+                                  "ID": "Custo_PM"
+                                }
+                              }
+                            }
+                          },
+                          "next": {
+                            "block": {
+                              "type": "rpg_log",
+                              "id": "Jw#7o0?S]O[-lr+sEQF3",
+                              "fields": {
+                                "TEXTO": "PM restantes"
+                              },
+                              "inputs": {
+                                "VALOR": {
+                                  "block": {
+                                    "type": "rpg_campo_valor",
+                                    "id": "!Bl(0S]}8ad|Ps+Wh3}m",
+                                    "fields": {
+                                      "ID": "PM_Atual"
+                                    }
+                                  }
+                                }
+                              },
+                              "next": {
+                                "block": {
+                                  "type": "rpg_se",
+                                  "id": "}2)skH##8-`{@QBN{2]{",
+                                  "inputs": {
+                                    "COND": {
+                                      "block": {
+                                        "type": "rpg_cmp",
+                                        "id": "At1?%cuI@tzFGH~xE4xH",
+                                        "fields": {
+                                          "OP": "!="
+                                        },
+                                        "inputs": {
+                                          "A": {
+                                            "block": {
+                                              "type": "rpg_item_valor",
+                                              "id": "xAEmIPWNWzDMz4oPa8NQ",
+                                              "fields": {
+                                                "ID": "Dano"
+                                              }
+                                            }
+                                          },
+                                          "B": {
+                                            "block": {
+                                              "type": "rpg_texto",
+                                              "id": "%XSNGwOV7c!|S)^(Kx{q",
+                                              "fields": {
+                                                "TXT": ""
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "ENTAO": {
+                                      "block": {
+                                        "type": "rpg_log",
+                                        "id": "V@9*WBilO1=JKMgYG-@S",
+                                        "fields": {
+                                          "TEXTO": "Dano"
+                                        },
+                                        "inputs": {
+                                          "VALOR": {
+                                            "block": {
+                                              "type": "rpg_rolar",
+                                              "id": "o#ioQL*;5L3ipyW.0*F2",
+                                              "inputs": {
+                                                "DADOS": {
+                                                  "block": {
+                                                    "type": "rpg_item_valor",
+                                                    "id": "~3Bfr@?(UH(er5~eB`q/",
+                                                    "fields": {
+                                                      "ID": "Dano"
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "next": {
+                                    "block": {
+                                      "type": "rpg_se",
+                                      "id": "0DB,,ZQ]%ok)xJ+#?HHL",
+                                      "inputs": {
+                                        "COND": {
+                                          "block": {
+                                            "type": "rpg_cmp",
+                                            "id": "KBGM[k,F!/IOYHr]=+0.",
+                                            "fields": {
+                                              "OP": "!="
+                                            },
+                                            "inputs": {
+                                              "A": {
+                                                "block": {
+                                                  "type": "rpg_item_valor",
+                                                  "id": "/y(,.Bz^RgcfQ-6xDo~+",
+                                                  "fields": {
+                                                    "ID": "Resistencia"
+                                                  }
+                                                }
+                                              },
+                                              "B": {
+                                                "block": {
+                                                  "type": "rpg_texto",
+                                                  "id": "`~`HVd,fp%Vy2=:UqjM~",
+                                                  "fields": {
+                                                    "TXT": ""
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        },
+                                        "ENTAO": {
+                                          "block": {
+                                            "type": "rpg_log",
+                                            "id": "{tZ{Gu*`OXA{VqjeYI,p",
+                                            "fields": {
+                                              "TEXTO": "Resistência"
+                                            },
+                                            "inputs": {
+                                              "VALOR": {
+                                                "block": {
+                                                  "type": "rpg_item_valor",
+                                                  "id": "[bK1uBq1NP{KJLdIPCO5",
+                                                  "fields": {
+                                                    "ID": "Resistencia"
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "SENAO": {
+                    "block": {
+                      "type": "rpg_log",
+                      "id": "=B5{QKNA(U1kz=bksdsM",
+                      "fields": {
+                        "TEXTO": "PM insuficiente — faltam"
+                      },
+                      "inputs": {
+                        "VALOR": {
+                          "block": {
+                            "type": "rpg_mat",
+                            "id": "jxN-aE8F$co6P^%z=b]t",
+                            "fields": {
+                              "OP": "-"
+                            },
+                            "inputs": {
+                              "A": {
+                                "block": {
+                                  "type": "rpg_item_valor",
+                                  "id": "]XpFbF}VkY@Tkuj4kJcu",
+                                  "fields": {
+                                    "ID": "Custo_PM"
+                                  }
+                                }
+                              },
+                              "B": {
+                                "block": {
+                                  "type": "rpg_campo_valor",
+                                  "id": "ge-QG/:sXPnbnLrLi~DQ",
+                                  "fields": {
+                                    "ID": "PM_Atual"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "corpo": [
+          {
+            "k": "se",
+            "cond": {
+              "k": "cmp",
+              "op": ">=",
+              "a": {
+                "k": "campo",
+                "id": "PM_Atual"
+              },
+              "b": {
+                "k": "item",
+                "id": "Custo_PM"
+              }
+            },
+            "entao": [
+              {
+                "k": "alterar",
+                "alvo": "campo",
+                "id": "PM_Atual",
+                "valor": {
+                  "k": "mat",
+                  "op": "-",
+                  "a": {
+                    "k": "campo",
+                    "id": "PM_Atual"
+                  },
+                  "b": {
+                    "k": "item",
+                    "id": "Custo_PM"
+                  }
+                }
+              },
+              {
+                "k": "log",
+                "texto": "PM gastos",
+                "valor": {
+                  "k": "item",
+                  "id": "Custo_PM"
+                }
+              },
+              {
+                "k": "log",
+                "texto": "PM restantes",
+                "valor": {
+                  "k": "campo",
+                  "id": "PM_Atual"
+                }
+              },
+              {
+                "k": "se",
+                "cond": {
+                  "k": "cmp",
+                  "op": "!=",
+                  "a": {
+                    "k": "item",
+                    "id": "Dano"
+                  },
+                  "b": {
+                    "k": "txt",
+                    "v": ""
+                  }
+                },
+                "entao": [
+                  {
+                    "k": "log",
+                    "texto": "Dano",
+                    "valor": {
+                      "k": "rolar",
+                      "dados": {
+                        "k": "item",
+                        "id": "Dano"
+                      }
+                    }
+                  }
+                ],
+                "senao": []
+              },
+              {
+                "k": "se",
+                "cond": {
+                  "k": "cmp",
+                  "op": "!=",
+                  "a": {
+                    "k": "item",
+                    "id": "Resistencia"
+                  },
+                  "b": {
+                    "k": "txt",
+                    "v": ""
+                  }
+                },
+                "entao": [
+                  {
+                    "k": "log",
+                    "texto": "Resistência",
+                    "valor": {
+                      "k": "item",
+                      "id": "Resistencia"
+                    }
+                  }
+                ],
+                "senao": []
+              }
+            ],
+            "senao": [
+              {
+                "k": "log",
+                "texto": "PM insuficiente — faltam",
+                "valor": {
+                  "k": "mat",
+                  "op": "-",
+                  "a": {
+                    "k": "item",
+                    "id": "Custo_PM"
+                  },
+                  "b": {
+                    "k": "campo",
+                    "id": "PM_Atual"
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "descanso",
+        "rotulo": "Descanso",
+        "workspace": {
+          "blocks": {
+            "languageVersion": 0,
+            "blocks": [
+              {
+                "type": "rpg_alterar_campo",
+                "id": "KncvxxP5jXcJ~LAQuF%r",
+                "x": 40,
+                "y": 40,
+                "fields": {
+                  "ID": "PV_Atual"
+                },
+                "inputs": {
+                  "VALOR": {
+                    "block": {
+                      "type": "rpg_campo_valor",
+                      "id": "VKh!-nf2[cd:V}dk[U)k",
+                      "fields": {
+                        "ID": "PV_Max"
+                      }
+                    }
+                  }
+                },
+                "next": {
+                  "block": {
+                    "type": "rpg_alterar_campo",
+                    "id": "GgL3JzC*=.$H_Ih7gvhP",
+                    "fields": {
+                      "ID": "PM_Atual"
+                    },
+                    "inputs": {
+                      "VALOR": {
+                        "block": {
+                          "type": "rpg_campo_valor",
+                          "id": ":lIA?A{b}1OjP``AFntI",
+                          "fields": {
+                            "ID": "PM_Max"
+                          }
+                        }
+                      }
+                    },
+                    "next": {
+                      "block": {
+                        "type": "rpg_log",
+                        "id": "tX|8vjG99{F|xae2Sv7;",
+                        "fields": {
+                          "TEXTO": "Descanso completo — PV"
+                        },
+                        "inputs": {
+                          "VALOR": {
+                            "block": {
+                              "type": "rpg_campo_valor",
+                              "id": ")voqXwIjynG:COQW`G[/",
+                              "fields": {
+                                "ID": "PV_Atual"
+                              }
+                            }
+                          }
+                        },
+                        "next": {
+                          "block": {
+                            "type": "rpg_log",
+                            "id": "^Z}~5V{RWYellDQl1NJo",
+                            "fields": {
+                              "TEXTO": "PM"
+                            },
+                            "inputs": {
+                              "VALOR": {
+                                "block": {
+                                  "type": "rpg_campo_valor",
+                                  "id": "t*Jxyd+)RMx!V_zlA?IL",
+                                  "fields": {
+                                    "ID": "PM_Atual"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "corpo": [
+          {
+            "k": "alterar",
+            "alvo": "campo",
+            "id": "PV_Atual",
+            "valor": {
+              "k": "campo",
+              "id": "PV_Max"
+            }
+          },
+          {
+            "k": "alterar",
+            "alvo": "campo",
+            "id": "PM_Atual",
+            "valor": {
+              "k": "campo",
+              "id": "PM_Max"
+            }
+          },
+          {
+            "k": "log",
+            "texto": "Descanso completo — PV",
+            "valor": {
+              "k": "campo",
+              "id": "PV_Atual"
+            }
+          },
+          {
+            "k": "log",
+            "texto": "PM",
+            "valor": {
+              "k": "campo",
+              "id": "PM_Atual"
+            }
+          }
+        ]
+      },
+      {
+        "id": "sofrerDano",
+        "rotulo": "Sofrer dano",
+        "workspace": {
+          "blocks": {
+            "languageVersion": 0,
+            "blocks": [
+              {
+                "type": "rpg_alterar_campo",
+                "id": "Y|(YukQe~b`w4D;v[6cs",
+                "x": 40,
+                "y": 40,
+                "fields": {
+                  "ID": "PV_Atual"
+                },
+                "inputs": {
+                  "VALOR": {
+                    "block": {
+                      "type": "rpg_mat",
+                      "id": "*o!uTly6e%9icIvWk5B1",
+                      "fields": {
+                        "OP": "-"
+                      },
+                      "inputs": {
+                        "A": {
+                          "block": {
+                            "type": "rpg_campo_valor",
+                            "id": "7p9G;aYBTfFMZZ#Dd+20",
+                            "fields": {
+                              "ID": "PV_Atual"
+                            }
+                          }
+                        },
+                        "B": {
+                          "block": {
+                            "type": "rpg_campo_valor",
+                            "id": "RZezG8w,35OVw[.Zq[0;",
+                            "fields": {
+                              "ID": "Ajuste"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "next": {
+                  "block": {
+                    "type": "rpg_log",
+                    "id": "?FFTZv9,jV|{$R)O9*{3",
+                    "fields": {
+                      "TEXTO": "Dano sofrido"
+                    },
+                    "inputs": {
+                      "VALOR": {
+                        "block": {
+                          "type": "rpg_campo_valor",
+                          "id": "rT^QE_$+U#AK4=lHJ1}M",
+                          "fields": {
+                            "ID": "Ajuste"
+                          }
+                        }
+                      }
+                    },
+                    "next": {
+                      "block": {
+                        "type": "rpg_log",
+                        "id": "vuTK7^[55+*(QiKQ)v4Y",
+                        "fields": {
+                          "TEXTO": "PV atual"
+                        },
+                        "inputs": {
+                          "VALOR": {
+                            "block": {
+                              "type": "rpg_campo_valor",
+                              "id": "tlm9r517He~4iy{yLU-g",
+                              "fields": {
+                                "ID": "PV_Atual"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "corpo": [
+          {
+            "k": "alterar",
+            "alvo": "campo",
+            "id": "PV_Atual",
+            "valor": {
+              "k": "mat",
+              "op": "-",
+              "a": {
+                "k": "campo",
+                "id": "PV_Atual"
+              },
+              "b": {
+                "k": "campo",
+                "id": "Ajuste"
+              }
+            }
+          },
+          {
+            "k": "log",
+            "texto": "Dano sofrido",
+            "valor": {
+              "k": "campo",
+              "id": "Ajuste"
+            }
+          },
+          {
+            "k": "log",
+            "texto": "PV atual",
+            "valor": {
+              "k": "campo",
+              "id": "PV_Atual"
+            }
+          }
+        ]
+      },
+      {
+        "id": "curar",
+        "rotulo": "Curar",
+        "workspace": {
+          "blocks": {
+            "languageVersion": 0,
+            "blocks": [
+              {
+                "type": "rpg_alterar_campo",
+                "id": "}m=xEV+p4}FX^=W|bzC:",
+                "x": 40,
+                "y": 40,
+                "fields": {
+                  "ID": "PV_Atual"
+                },
+                "inputs": {
+                  "VALOR": {
+                    "block": {
+                      "type": "rpg_mat",
+                      "id": "HbI|ifq@U*Zk1@{#!~|]",
+                      "fields": {
+                        "OP": "min"
+                      },
+                      "inputs": {
+                        "A": {
+                          "block": {
+                            "type": "rpg_mat",
+                            "id": "7#8i+0N==Xtrt6(^%hWI",
+                            "fields": {
+                              "OP": "+"
+                            },
+                            "inputs": {
+                              "A": {
+                                "block": {
+                                  "type": "rpg_campo_valor",
+                                  "id": "e.$|Y#X+|Ep!n,?.`~8r",
+                                  "fields": {
+                                    "ID": "PV_Atual"
+                                  }
+                                }
+                              },
+                              "B": {
+                                "block": {
+                                  "type": "rpg_campo_valor",
+                                  "id": "KB#k{Y6);?nGR*Tm]eyX",
+                                  "fields": {
+                                    "ID": "Ajuste"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "B": {
+                          "block": {
+                            "type": "rpg_campo_valor",
+                            "id": "r?|mKr65/0BBWZY^a{J~",
+                            "fields": {
+                              "ID": "PV_Max"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "next": {
+                  "block": {
+                    "type": "rpg_log",
+                    "id": "A6t^XlT4s$W|}qNk1*[W",
+                    "fields": {
+                      "TEXTO": "Cura"
+                    },
+                    "inputs": {
+                      "VALOR": {
+                        "block": {
+                          "type": "rpg_campo_valor",
+                          "id": "GFqg^9984~cIET=}3zT}",
+                          "fields": {
+                            "ID": "Ajuste"
+                          }
+                        }
+                      }
+                    },
+                    "next": {
+                      "block": {
+                        "type": "rpg_log",
+                        "id": "11agBX_#KHD1Fv)lupHQ",
+                        "fields": {
+                          "TEXTO": "PV atual"
+                        },
+                        "inputs": {
+                          "VALOR": {
+                            "block": {
+                              "type": "rpg_campo_valor",
+                              "id": "ZS#vjbn_i{/~.ylq*r7}",
+                              "fields": {
+                                "ID": "PV_Atual"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "corpo": [
+          {
+            "k": "alterar",
+            "alvo": "campo",
+            "id": "PV_Atual",
+            "valor": {
+              "k": "mat",
+              "op": "min",
+              "a": {
+                "k": "mat",
+                "op": "+",
+                "a": {
+                  "k": "campo",
+                  "id": "PV_Atual"
+                },
+                "b": {
+                  "k": "campo",
+                  "id": "Ajuste"
+                }
+              },
+              "b": {
+                "k": "campo",
+                "id": "PV_Max"
+              }
+            }
+          },
+          {
+            "k": "log",
+            "texto": "Cura",
+            "valor": {
+              "k": "campo",
+              "id": "Ajuste"
+            }
+          },
+          {
+            "k": "log",
+            "texto": "PV atual",
+            "valor": {
+              "k": "campo",
+              "id": "PV_Atual"
+            }
+          }
+        ]
+      }
+    ]
   }
 }

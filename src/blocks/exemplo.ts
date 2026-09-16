@@ -5,31 +5,6 @@
 import type { AcaoDef, CampoDef, NoLayout, Pos, TemplateDef } from '../shared/types';
 import { compilarAcao } from './compiler';
 
-type Bloco = { type: string; fields?: Record<string, unknown>; inputs?: Record<string, { block: Bloco }>; next?: { block: Bloco } };
-
-function bloco(type: string, fields: Record<string, unknown> = {}, inputs: Record<string, Bloco | undefined> = {}): Bloco {
-  const b: Bloco = { type };
-  if (Object.keys(fields).length) b.fields = fields;
-  const entradas = Object.entries(inputs).filter((e): e is [string, Bloco] => e[1] !== undefined);
-  if (entradas.length) b.inputs = Object.fromEntries(entradas.map(([nome, filho]) => [nome, { block: filho }]));
-  return b;
-}
-
-function empilhar(...blocos: Bloco[]): Bloco {
-  for (let i = 0; i < blocos.length - 1; i++) blocos[i].next = { block: blocos[i + 1] };
-  return blocos[0];
-}
-
-const workspace = (...comandos: Bloco[]) => ({ blocks: { languageVersion: 0, blocks: [{ ...empilhar(...comandos), x: 40, y: 40 }] } });
-
-const txt = (v: string) => bloco('rpg_texto', { TXT: v });
-const campoDe = (id: string) => bloco('rpg_campo_valor', { ID: id });
-const itemDe = (id: string) => bloco('rpg_item_valor', { ID: id });
-const variavel = (nome: string) => bloco('rpg_var', { NOME: nome });
-const mat = (a: Bloco, op: string, b: Bloco) => bloco('rpg_mat', { OP: op }, { A: a, B: b });
-const rolar = (dados: Bloco) => bloco('rpg_rolar', {}, { DADOS: dados });
-const log = (texto: string, valor?: Bloco) => bloco('rpg_log', { TEXTO: texto }, { VALOR: valor });
-
 const pos = (x: number, y: number, w: number, h = 1): Pos => ({ x, y, w, h });
 const campo = (p: Pos, campo: CampoDef): NoLayout => ({ tipo: 'campo', pos: p, campo });
 const botao = (p: Pos, acaoId: string): NoLayout => ({ tipo: 'acao', pos: p, acaoId });

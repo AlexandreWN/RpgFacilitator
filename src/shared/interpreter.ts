@@ -83,7 +83,10 @@ export function completarValores(def: TemplateDef, valores: Valores = {}): Valor
   for (const l of listasDoTemplate(def)) {
     const atual = r[l.id];
     const padrao = itemPadrao(l);
-    r[l.id] = Array.isArray(atual) ? atual.map((it) => ({ ...padrao, ...it })) : [];
+    // Personagem novo (sem a lista) começa com os itens iniciais do template;
+    // uma lista já esvaziada pelo jogador continua vazia.
+    const base = Array.isArray(atual) ? atual : (l.itensPadrao ?? []);
+    r[l.id] = base.map((it) => ({ ...padrao, ...it }));
   }
   return r;
 }
@@ -175,8 +178,27 @@ class Execucao {
     if (this.camposItem.has(id)) v = this.lerItem(id);
     else if (this.vars.has(id)) v = this.vars.get(id)!;
     else v = this.lerCampo(id);
+    if (typeof v === 'string') {
+      const texto = v.trim();
+      if (texto !== '' && !Number.isFinite(Number(texto.replace(',', '.')))) return this.avaliarTexto(id, texto);
+    }
     return numeroObrigatorio(v, id);
   };
+
+  /** Um campo de texto pode guardar outra expressão: Chave = "DES" vira o valor de DES. */
+  private avaliarTexto(id: string, texto: string): number {
+    const chave = `texto:${id}`;
+    if (this.calculando.has(chave)) throw new ErroExecucao(`O campo "${id}" depende de si mesmo`);
+    this.calculando.add(chave);
+    try {
+      return avaliarFormula(texto, this.resolverIdentificador);
+    } catch (e) {
+      const motivo = e instanceof Error ? e.message : String(e);
+      throw new ErroExecucao(`O campo "${id}" contém "${texto}", que não é número nem fórmula válida (${motivo})`);
+    } finally {
+      this.calculando.delete(chave);
+    }
+  }
 
   private rolar(dados: Valor, multiplicarDados = 1, sufixo = ''): number {
     if (typeof dados === 'number') return dados;

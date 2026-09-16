@@ -1,11 +1,13 @@
 import { NOMES_FUNCOES } from '../shared/dice';
 import { camposDoPersonagem } from '../shared/interpreter';
-import type { FormatoLista, NoLayout, TemplateDef, TipoCampo } from '../shared/types';
+import type { FormatoLista, Item, NoLayout, TemplateDef, TipoCampo, Valores } from '../shared/types';
 import { ajustarColunas } from './LayoutEditor';
 import { atualizarNo, idsDaFicha, idUnicoDeCampo, obterNo, removerNo, type Caminho } from './modelo';
 
 interface Props {
   definicao: TemplateDef;
+  /** Valores da ficha de teste, usados para gravar os itens iniciais de uma lista. */
+  valores: Valores;
   caminho: Caminho | null;
   onChange: (def: TemplateDef) => void;
   onSelecionar: (c: Caminho | null) => void;
@@ -26,7 +28,7 @@ const FORMATOS: { valor: FormatoLista; rotulo: string }[] = [
   { valor: 'tabela', rotulo: 'Tabela' },
 ];
 
-export function Propriedades({ definicao, caminho, onChange, onSelecionar, onEditarBlocos }: Props) {
+export function Propriedades({ definicao, valores, caminho, onChange, onSelecionar, onEditarBlocos }: Props) {
   const no = caminho ? obterNo(definicao.layout, caminho) : undefined;
 
   if (!caminho || !no) {
@@ -210,6 +212,37 @@ export function Propriedades({ definicao, caminho, onChange, onSelecionar, onEdi
               onChange={(e) => onChange(ajustarColunas(definicao, caminho, Math.min(12, Math.max(1, Number(e.target.value) || 1))))}
             />
           </label>
+          <div className="prop">
+            <span className="rotulo-mono">Itens iniciais</span>
+            <span className="nota">
+              {no.lista.itensPadrao?.length
+                ? `${no.lista.itensPadrao.length} item(ns) — todo personagem novo já começa com eles.`
+                : 'Nenhum. Personagens novos começam com a lista vazia.'}
+            </span>
+            <button
+              onClick={() => {
+                const atuais = valores[no.lista.id];
+                const itens: Item[] = Array.isArray(atuais) ? atuais : [];
+                trocar((n) => (n.tipo === 'lista' ? { ...n, lista: { ...n.lista, itensPadrao: itens } } : n));
+              }}
+            >
+              Usar os itens da ficha de teste
+            </button>
+            {!!no.lista.itensPadrao?.length && (
+              <button
+                className="discreto"
+                onClick={() =>
+                  trocar((n) => {
+                    if (n.tipo !== 'lista') return n;
+                    const { itensPadrao: _, ...lista } = n.lista;
+                    return { ...n, lista };
+                  })
+                }
+              >
+                limpar itens iniciais
+              </button>
+            )}
+          </div>
         </>
       )}
 

@@ -2,16 +2,23 @@
 
 Sistema local para **desenhar fichas de RPG** e jogar com elas. Você monta a ficha arrastando campos para onde quiser, escolhe o formato de cada lista (armas, magias…) e só depois configura as **funções** com blocos: rolagens, crítico, alteração de valores.
 
-## Como rodar
+## Como abrir o app
 
-Requer Node 20+.
+**Dois cliques em `iniciar.bat`.** Ele confere se o Node está instalado, instala as dependências na primeira vez, sobe o app e abre o navegador sozinho. Deixe a janela preta aberta enquanto estiver jogando; fechá-la desliga o app.
+
+Para mexer no código, use `dev.bat`: recarrega sozinho a cada alteração e abre em http://localhost:5173.
+
+Requer [Node.js](https://nodejs.org) 20 ou mais novo.
+
+### Pelo terminal
 
 ```bash
 npm install
-npm run dev
+npm start     # build + app em http://localhost:3001
+npm run dev   # desenvolvimento, em http://localhost:5173
 ```
 
-Abra http://localhost:5173 (a API roda em http://localhost:3001; mude com `RPG_API_PORT`).
+A API usa a porta 3001; mude com `RPG_API_PORT`. Para o app abrir o navegador sozinho, defina `RPG_ABRIR=1` (é o que o `iniciar.bat` faz).
 
 | Comando | O que faz |
 | --- | --- |

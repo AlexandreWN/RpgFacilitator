@@ -71,7 +71,7 @@ export default function CharacterSheet() {
   const executar = (acao: AcaoDef, ctx: ContextoItem) => {
     if (!template) return;
     const resultado = executarAcao(template.definicao, acao, valores, ctx);
-    setLog((atual) => [criarRegistro(acao, ctx, valores, resultado), ...atual].slice(0, 200));
+    setLog((atual) => [criarRegistro(template.definicao, acao, ctx, valores, resultado), ...atual].slice(0, 200));
     if (!resultado.erro) setValores(resultado.valores);
   };
 

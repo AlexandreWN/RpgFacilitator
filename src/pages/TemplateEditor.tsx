@@ -215,7 +215,7 @@ export default function TemplateEditor() {
 
   const executar = (acao: AcaoDef, ctx: ContextoItem) => {
     const resultado = executarAcao(def, acao, valores, ctx);
-    setLog((atual) => [criarRegistro(acao, ctx, valores, resultado), ...atual].slice(0, 100));
+    setLog((atual) => [criarRegistro(def, acao, ctx, valores, resultado), ...atual].slice(0, 100));
     if (!resultado.erro) setValoresPreview(resultado.valores);
   };
 
@@ -274,6 +274,7 @@ export default function TemplateEditor() {
           <aside className="painel-lateral">
             <Propriedades
               definicao={def}
+              valores={valores}
               caminho={selecionado}
               onChange={setDef}
               onSelecionar={setSelecionado}
